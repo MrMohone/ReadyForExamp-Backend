@@ -1,0 +1,57 @@
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+
+# Environment / venv
+env/
+venv/
+*.env
+*.venv
+
+# Django stuff
+db.sqlite3
+media/
+staticfiles/
+*.pot
+*.pyc
+
+# Migrations (usually safe to commit)
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# =========================
+# Node / React
+# =========================
+node_modules/
+build/
+dist/
+npm-debug.log*
+yarn-error.log*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# Others
+# =========================
+*.swp
+*.bak
+*.tmp
+*.orig
