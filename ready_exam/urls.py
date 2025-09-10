@@ -8,10 +8,11 @@
 # 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ExamTypeViewSet, SubjectViewSet, ResourceViewSet
+from .views import ExamTypeViewSet,SpecificExamTypeViewSet, SubjectViewSet, ResourceViewSet
 
 router = DefaultRouter()
 router.register(r'examtypes', ExamTypeViewSet)
+router.register(r'specificexamtypes', SpecificExamTypeViewSet)
 router.register(r'subjects', SubjectViewSet)
 router.register(r'resources', ResourceViewSet)
 

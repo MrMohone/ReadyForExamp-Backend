@@ -1,10 +1,14 @@
 from rest_framework import serializers
-from .models import ExamType, Subject, Resource
-
+from .models import ExamType, Subject, Resource, SpecificExamType
 class ExamTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExamType
         fields = ['id', 'exam_name']
+
+class SpecificExamTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SpecificExamType
+        fields = ['id', 'exam_name', 'exam_description']
 
 
 class SubjectSerializer(serializers.ModelSerializer):

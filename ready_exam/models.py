@@ -5,10 +5,23 @@ class ExamType(models.Model):
     EXAM_CATEGORY_CHOICES = [
         ('Ministry', 'Ministry'),
         ('Matric', 'Matric'),
-        ('Enterance', 'Entrance'),
+        ('Entrance', 'Entrance'),
     ]
     exam_name =  models.CharField(max_length=20,choices=EXAM_CATEGORY_CHOICES, default='Ministry')
 
+    def __str__(self):
+        return self.exam_name
+    
+class SpecificExamType(models.Model):
+    EXAM_CATEGORY_CHOICES = [
+        ('Ministry', 'Ministry'),
+        ('Matric', 'Matric'),
+        ('Entrance', 'Entrance'),
+    ]
+    
+    exam_name =  models.CharField(max_length=20,choices=EXAM_CATEGORY_CHOICES, default='Ministry')
+    exam_description = models.TextField( blank=False, null=False)
+    
     def __str__(self):
         return self.exam_name
 
