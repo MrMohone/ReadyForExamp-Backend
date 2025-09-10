@@ -12,8 +12,20 @@ import Resources from "./ministary/Resources";
 import PDF_Resource from "./ministary/PDF_Resource";
 import VIDEO_Resource from "./ministary/VIDEO_Resource";
 
+import { useEffect, useState } from "react";
+import { getExamTypes } from "./services/api";
+
 
 function App() {
+  
+  // const [examTypes, setExamTypes] = useState([]);
+
+  // useEffect(() => {
+  //   getExamTypes()
+  //     .then((res) => setExamTypes(res.data))
+  //     .catch((err) => console.error("Error fetching exam types:", err));
+  // }, []);
+
   return (
     <Router>
       {/* <Navbar /> */}
@@ -33,11 +45,20 @@ function App() {
         <Route path="/ministray/natural_science/physics/video" element={<VIDEO_Resource />}/>
         
         {/* for matric student */}
+        
 
       </Routes>
-
+       {/* <div>
+          <h1>Exam Types</h1>
+          <ul>
+            {examTypes.map((exam) => (
+              <li key={exam.id}>{exam.exam_name}</li>
+            ))}
+          </ul>
+        </div> */}
       <Footer />
     </Router>
+    
   );
 }
 
