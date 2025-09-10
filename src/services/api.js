@@ -8,5 +8,6 @@ const API = axios.create({
 
 // Example endpoints
 export const getExamTypesAPI = () => API.get("examtypes/");
+export const getSpecificExamTypeAPI = () => API.get("specificexamtypes/");
 export const getSubjectsAPI = () => API.get("subjects/");
 export const getResourcesAPI = () => API.get("resources/");

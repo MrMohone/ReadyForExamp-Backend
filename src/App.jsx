@@ -37,12 +37,12 @@ function App() {
         <Route path="/about" element={<About/>}/>
         
         {/* for Ministary student */}
-        <Route path="/ministray" element={<MinistaryCollage/>}/>
-        <Route path="/ministray/natural_science" element={<Naturalsubjects />}/>
-        <Route path="/ministray/social_science" element={<SocialSubjects />}/>
-        <Route path="/ministray/natural_science/physics" element={<Resources />}/>
-        <Route path="/ministray/natural_science/physics/pdf" element={<PDF_Resource />}/>
-        <Route path="/ministray/natural_science/physics/video" element={<VIDEO_Resource />}/>
+        <Route path="/ministry" element={<MinistaryCollage/>}/>
+        <Route path="/ministry/natural_science" element={<Naturalsubjects />}/>
+        <Route path="/ministry/social_science" element={<SocialSubjects />}/>
+        <Route path="/ministry/natural_science/physics" element={<Resources />}/>
+        <Route path="/ministry/natural_science/physics/pdf" element={<PDF_Resource />}/>
+        <Route path="/ministry/natural_science/physics/video" element={<VIDEO_Resource />}/>
         
         {/* for matric student */}
         

@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getExamTypesAPI } from '../../services/api'
+import { getSpecificExamTypeAPI } from '../../services/api'
 
 function Exams() {
 
     const [examTypes, setExamTypes] = useState([]);
 
   useEffect(() => {
-    getExamTypesAPI()
+    getSpecificExamTypeAPI()
       .then((res) => setExamTypes(res.data))
       .catch((err) => console.error("Error fetching exam types:", err));
   }, []);
 
    // helper function for description
-  const getExamDescription = (name) => {
-    if (name === "Ministry") return "National examination for Ministry students.";
-    if (name === "Matric") return "Prepare for Matric success with resources.";
-    if (name === "Entrance") return "Improve your chance to Join University. Let's go!";
-    return "General exam resources.";//else
-  };
+  // const getExamDescription = (name) => {
+  //   if (name === "Ministry") return "National examination for Ministry students.";
+  //   if (name === "Matric") return "Prepare for Matric success with resources.";
+  //   if (name === "Entrance") return "Improve your chance to Join University. Let's go!";
+  //   return "General exam resources.";//else
+  // };
 
 
 
@@ -38,9 +38,10 @@ function Exams() {
             <div class="ray"></div>
             <div class="text">{exam.exam_name}</div>
             <div>
-              {getExamDescription(exam.exam_name)}
+              {/* {getExamDescription(exam.exam_name)} */}
+              {exam.exam_description}
             </div>
-            <Link to='/ministray' className="btn btn-warning mt-3 text-dark">
+            <Link to={`/${exam.exam_name.toLowerCase()}`} className="btn btn-warning mt-3 text-dark">
                         Select
                       </Link>
             <div class="line topl"></div>
