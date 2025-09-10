@@ -12,8 +12,8 @@ import Resources from "./ministary/Resources";
 import PDF_Resource from "./ministary/PDF_Resource";
 import VIDEO_Resource from "./ministary/VIDEO_Resource";
 
-import { useEffect, useState } from "react";
-import { getExamTypes } from "./services/api";
+// import { useEffect, useState } from "react";
+// import { getExamTypesAPI } from "./services/api";
 
 
 function App() {
