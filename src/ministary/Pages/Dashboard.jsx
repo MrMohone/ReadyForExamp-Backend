@@ -24,7 +24,6 @@ function Exams() {
         Please Select Your Examination Type
       </h2>
 
-      {/* Responsive Grid */}
       <div className="row g-4 gap-3 justify-content-center">
       {examTypes.map((exam)=>(
         <div class="outer" key={exam.id}>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function MinistaryCollage() {
+function EntranceCollage() {
   return (
     <section className="container text-center my-5">
       {/* Header */}
@@ -29,4 +29,4 @@ function MinistaryCollage() {
   );
 }
 
-export default MinistaryCollage;
+export default EntranceCollage;

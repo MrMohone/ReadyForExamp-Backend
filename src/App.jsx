@@ -5,12 +5,25 @@ import NotFound_page from "./Not_Found_page";
 // Ministary Imports
 import Dashboard from "./ministary/Pages/Dashboard";
 import About from "./components/About";
-import MinistaryCollage from "./ministary/Pages/selectCollage/MinistaryCollage";
-import Naturalsubjects from "./ministary/Naturalsubjects";
-import SocialSubjects from "./ministary/Socialsubjects";
-import Resources from "./ministary/Resources";
-import PDF_Resource from "./ministary/PDF_Resource";
-import VIDEO_Resource from "./ministary/VIDEO_Resource";
+import AllCourses from "./ministary/Pages/selectCollage/AllCourses";
+import EntranceCollage from "./entrance/Pages/selectCollage/EntranceCollage";
+import MatricCollage from "./matric/Pages/selectCollage/MatricCollage"
+import MinistryResources from "./ministary/Resources";
+import MinistryPDF_Resource from "./ministary/PDF_Resource";
+import MinistryVIDEO_Resource from "./ministary/VIDEO_Resource";
+// Matric imports
+import MatricResources from "./matric/Resources";
+import MatricPDF_Resource from "./matric/PDF_Resource";
+import MatricVIDEO_Resource from "./matric/VIDEO_Resource";
+import MatricNaturalSubjects from "./matric/Naturalsubjects";
+import MatricSocialSubjects from "./matric/Socialsubjects";
+
+// Entrance imports
+import EntranceResources from "./entrance/Resources";
+import EntrancePDF_Resource from "./entrance/PDF_Resource";
+import EntranceVIDEO_Resource from "./entrance/VIDEO_Resource";
+import EntranceNaturalSubjects from "./entrance/Naturalsubjects";
+import EntranceSocialSubjects from "./entrance/Socialsubjects";
 
 // import { useEffect, useState } from "react";
 // import { getExamTypesAPI } from "./services/api";
@@ -37,14 +50,29 @@ function App() {
         <Route path="/about" element={<About/>}/>
         
         {/* for Ministary student */}
-        <Route path="/ministry" element={<MinistaryCollage/>}/>
-        <Route path="/ministry/natural_science" element={<Naturalsubjects />}/>
-        <Route path="/ministry/social_science" element={<SocialSubjects />}/>
-        <Route path="/ministry/natural_science/physics" element={<Resources />}/>
-        <Route path="/ministry/natural_science/physics/pdf" element={<PDF_Resource />}/>
-        <Route path="/ministry/natural_science/physics/video" element={<VIDEO_Resource />}/>
+        <Route path="/ministry" element={<AllCourses/>}/>
+        <Route path="/ministry/natural_science/physics" element={<MinistryResources />}/>
+        <Route path="/ministry/natural_science/physics/pdf" element={<MinistryPDF_Resource />}/>
+        <Route path="/ministry/natural_science/physics/video" element={<MinistryVIDEO_Resource />}/>
         
         {/* for matric student */}
+        <Route path="/matric" element={<MatricCollage/>}/>
+        <Route path="/matric/natural_science/physics" element={<MatricResources />}/>
+        <Route path="/matric/natural_science/physics/pdf" element={<MatricPDF_Resource />}/>
+        <Route path="/matric/natural_science/physics/video" element={<MatricVIDEO_Resource />}/>
+        <Route path="/matric/natural_science" element={<MatricNaturalSubjects/>}/>
+        <Route path="/matric/social_science" element={<MatricSocialSubjects/>} />
+
+
+        {/* for entrance student */}
+        <Route path="/entrance" element={<EntranceCollage/>}/>
+        <Route path="/entrance/natural_science/physics" element={<EntranceResources />}/>
+        <Route path="/entrance/natural_science/physics/pdf" element={<EntrancePDF_Resource />}/>
+        <Route path="/entrance/natural_science/physics/video" element={<EntranceVIDEO_Resource />}/>
+        <Route path="/entrance/natural_science" element={<EntranceNaturalSubjects/>}/>
+        <Route path="/entrance/social_science" element={<EntranceSocialSubjects/>} />
+
+
         
 
       </Routes>
