@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import ExamType, Subject, Resource, SpecificExamType
+from .models import ExamType, MatricResource, MinistryResource
 
 admin.site.register(ExamType)
-admin.site.register(Subject)
-admin.site.register(Resource) 
-admin.site.register(SpecificExamType)  
+admin.site.register(MatricResource)
+admin.site.register(MinistryResource)
+
 
