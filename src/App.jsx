@@ -3,11 +3,10 @@ import Home from "./Home";
 import Footer from "./components/Footer";
 import NotFound_page from "./Not_Found_page";
 // Ministary Imports
-import Dashboard from "./ministary/Pages/Dashboard";
+import Dashboard from "./components/Dashboard";
 import About from "./components/About";
-import AllCourses from "./ministary/Pages/selectCollage/AllCourses";
+import Courses from "./components/AllCourses/Courses";
 import EntranceCollage from "./entrance/Pages/selectCollage/EntranceCollage";
-import MatricCollage from "./matric/Pages/selectCollage/MatricCollage"
 import MinistryResources from "./ministary/Resources";
 import MinistryPDF_Resource from "./ministary/PDF_Resource";
 import MinistryVIDEO_Resource from "./ministary/VIDEO_Resource";
@@ -15,8 +14,7 @@ import MinistryVIDEO_Resource from "./ministary/VIDEO_Resource";
 import MatricResources from "./matric/Resources";
 import MatricPDF_Resource from "./matric/PDF_Resource";
 import MatricVIDEO_Resource from "./matric/VIDEO_Resource";
-import MatricNaturalSubjects from "./matric/Naturalsubjects";
-import MatricSocialSubjects from "./matric/Socialsubjects";
+
 
 // Entrance imports
 import EntranceResources from "./entrance/Resources";
@@ -50,18 +48,18 @@ function App() {
         <Route path="/about" element={<About/>}/>
         
         {/* for Ministary student */}
-        <Route path="/ministry" element={<AllCourses/>}/>
+        <Route path="/ministry" element={<Courses/>}/>
         <Route path="/ministry/natural_science/physics" element={<MinistryResources />}/>
         <Route path="/ministry/natural_science/physics/pdf" element={<MinistryPDF_Resource />}/>
         <Route path="/ministry/natural_science/physics/video" element={<MinistryVIDEO_Resource />}/>
         
         {/* for matric student */}
-        <Route path="/matric" element={<MatricCollage/>}/>
+        <Route path="/matric" element={<Courses/>}/>
         <Route path="/matric/natural_science/physics" element={<MatricResources />}/>
         <Route path="/matric/natural_science/physics/pdf" element={<MatricPDF_Resource />}/>
         <Route path="/matric/natural_science/physics/video" element={<MatricVIDEO_Resource />}/>
-        <Route path="/matric/natural_science" element={<MatricNaturalSubjects/>}/>
-        <Route path="/matric/social_science" element={<MatricSocialSubjects/>} />
+        {/* <Route path="/matric/natural_science" element={<MatricNaturalSubjects/>}/>
+        <Route path="/matric/social_science" element={<MatricSocialSubjects/>} /> */}
 
 
         {/* for entrance student */}

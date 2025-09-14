@@ -2,18 +2,18 @@
 import { FaAtom } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSubjectsAPI } from "../services/api";
+// import { getSubjectsAPI } from "../services/api";
 
 
 function NaturalSubjects() {
 
-  const [subjects, setSubjects] = useState([]);
+  // const [subjects, setSubjects] = useState([]);
 
-  useEffect(() => {
-    getSubjectsAPI()
-      .then((res) => setSubjects(res.data))
-      .catch((err) => console.error("Error fetching subjects:", err));
-  }, []);
+  // useEffect(() => {
+  //   getSubjectsAPI()
+  //     .then((res) => setSubjects(res.data))
+  //     .catch((err) => console.error("Error fetching subjects:", err));
+  // }, []);
   
   return (
     <div className="bg-light min-vh-100 d-flex flex-column">
@@ -29,8 +29,8 @@ function NaturalSubjects() {
       <main className="container my-5 flex-grow-1">
         <div className="row g-4">
           {/* Physics */}
-          { subjects.map(subject =>(
-          <div className="col-12 col-md-6 col-lg-3" key={subject.id}>
+          {/* { subjects.map(subject =>( */}
+          <div className="col-12 col-md-6 col-lg-3">
             <div className="card shadow border-0 h-100 text-center">
               <div className="card-body d-flex flex-column align-items-center">
                 <FaAtom size={40} className="text-primary mb-3" />
@@ -38,13 +38,13 @@ function NaturalSubjects() {
                 <p className="text-white">
                   {subject.description}
                 </p>
-                <Link to= {`${subject.subject_name.toLowerCase()}`} className="btn btn-primary mt-auto w-100">
-                  Explore {subject.subject_name}
+                <Link to= '/subjects/physics' className="btn btn-primary mt-auto w-100">
+                  Explore Sample
                </Link>
               </div>
             </div>
           </div>
-          ))}
+         
         </div>
       </main>
     </div>

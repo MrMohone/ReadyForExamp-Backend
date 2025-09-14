@@ -2,33 +2,43 @@
 import { FaAtom } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSubjectsAPI } from "../services/api";
+// import { getSubjectsAPI } from "../../services/api";
+import { useLocation } from "react-router-dom";
 
 
-function NaturalSubjects() {
+function Courses() {
 
-  const [subjects, setSubjects] = useState([]);
+  // const location = useLocation();
+  // const { examId, examName } = location.state || {}; // safely unpack
 
-  useEffect(() => {
-    getSubjectsAPI()
-      .then((res) => setSubjects(res.data))
-      .catch((err) => console.error("Error fetching subjects:", err));
-  }, []);
+
+  // const [subjects, setSubjects] = useState([]);
+
+  // useEffect(() => {
+  //   getSubjectsAPI()
+  //     .then((res) => setSubjects(res.data))
+  //     .catch((err) => console.error("Error fetching subjects:", err));
+  // }, []);
   
   return (
     <div className="bg-light min-vh-100 d-flex flex-column">
       {/* Hero Section */}
       <header className="bg-success text-white text-center py-5 shadow">
-        <h1 className="fw-bold display-5">Natural Science Subjects</h1>
+        <h1 className="fw-bold display-5">Access All Subjects</h1>
         <p className="lead">
-          Explore Physics, Chemistry, Biology, and Mathematics with resources, past exams, and lectures.
+          Explore Chemistry, Geography, and Mathematics, Civics with resources, past exams, and lectures.
         </p>
       </header>
 
       {/* Subjects Section */}
       <main className="container my-5 flex-grow-1">
-        <div className="row g-4">
-          {/* Physics */}
+{/* 
+         <p>Selected Exam: {examName}</p>
+      <p>Exam ID: {examId}</p> */}
+
+      <h1>Comming Soon</h1>
+      
+        {/* <div className="row g-4">
           { subjects.map(subject =>(
           <div className="col-12 col-md-6 col-lg-3" key={subject.id}>
             <div className="card shadow border-0 h-100 text-center">
@@ -45,10 +55,10 @@ function NaturalSubjects() {
             </div>
           </div>
           ))}
-        </div>
+        </div> */}
       </main>
     </div>
   );
 }
 
-export default NaturalSubjects;
+export default Courses;

@@ -3,11 +3,10 @@ import axios from "axios";
 
 // Django backend base URL
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/", // your DRF API base
+  baseURL: "http://127.0.0.1:8000/api/", // DRF API base
 });
 
 // Example endpoints
 export const getExamTypesAPI = () => API.get("examtypes/");
-export const getSpecificExamTypeAPI = () => API.get("specificexamtypes/");
-export const getSubjectsAPI = () => API.get("subjects/");
-export const getResourcesAPI = () => API.get("resources/");
+export const getMinistryResourcesAPI = () => API.get("ministryresources/");
+export const getMatricResourcesAPI = () => API.get("matricresources/");

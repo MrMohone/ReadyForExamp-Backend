@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSpecificExamTypeAPI } from '../../services/api'
+import { getExamTypesAPI } from '../services/api'
 
 function Exams() {
 
@@ -8,7 +8,7 @@ function Exams() {
 
 
   useEffect(() => {
-    getSpecificExamTypeAPI()
+    getExamTypesAPI()
       .then((res) => setExamTypes(res.data))
       .catch((err) => console.error("Error fetching exam types:", err));
   }, []);
@@ -34,7 +34,9 @@ function Exams() {
             <div>
               {exam.exam_description}
             </div>
-            <Link to={`/${exam.exam_name.toLowerCase()}`} className="btn btn-warning mt-3 text-dark">
+            <Link to={`/${exam.exam_name.toLowerCase()}`} 
+              state={{ examId: exam.id, examName: exam.exam_name }} //to pass data to next page based on selection
+              className="btn btn-warning mt-3 text-dark">
                         Select
                       </Link>
             <div class="line topl"></div>
