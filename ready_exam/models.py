@@ -35,12 +35,21 @@ class MinistryResource(models.Model):
         ('Video', 'Video'),
     ]
 
+    # subject = models.CharField(max_length=200, null=False, blank=False)
+    # title = models.CharField(max_length=200)
+    resource_type = models.CharField(max_length=10, choices=RESOURCE_TYPE_CHOICES, default='PDF')
+    # file = models.FileField(upload_to='resources/ministry/')
+    # description = models.TextField(blank=True, null=True)
+    # uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.resource_type}"
+
+class MinistryAllResource(models.Model):
     subject = models.CharField(max_length=200, null=False, blank=False)
     title = models.CharField(max_length=200)
-    resource_type = models.CharField(max_length=10, choices=RESOURCE_TYPE_CHOICES, default='PDF')
+    exam_name = models.ForeignKey(ExamType, on_delete=models.CASCADE, related_name="exam", default="Ministry")
+    resource_type = models.ForeignKey(MinistryResource, on_delete=models.CASCADE, related_name="resource", default="PDF")
     file = models.FileField(upload_to='resources/ministry/')
     description = models.TextField(blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.subject} ({self.title})"
