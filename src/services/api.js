@@ -9,4 +9,5 @@ const API = axios.create({
 // Example endpoints
 export const getExamTypesAPI = () => API.get("examtypes/");
 export const getMinistryResourcesAPI = () => API.get("ministryresources/");
+export const getMinistryAllResourceAPI = () => API.get("ministryallresource/")
 export const getMatricResourcesAPI = () => API.get("matricresources/");

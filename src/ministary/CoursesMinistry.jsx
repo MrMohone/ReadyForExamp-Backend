@@ -2,7 +2,7 @@
 import { FaAtom } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getMinistryResourcesAPI } from "../services/api";
+import { getMinistryAllResourceAPI } from "../services/api";
 
 import PdfViewer from "./PdfViewer";
 
@@ -11,7 +11,7 @@ function CoursesMinistry() {
   const [resources, setResource] = useState([]);
 
   useEffect(()=>{
-    getMinistryResourcesAPI()
+    getMinistryAllResourceAPI()
     .then((res) =>  setResource(res.data))
     .catch((err) => console.error('Error fetching resources:', err));
   })
@@ -38,12 +38,9 @@ function CoursesMinistry() {
             <div className="card shadow border-0 h-100 text-center">
               <div className="card-body d-flex flex-column align-items-center">
                 <FaAtom size={40} className="text-primary mb-3" />
-                <h4 className="fw-bold">{res.subject}</h4>
-                <h4 className="fw-bold">{res.title}</h4>
-                <p className="text-white">
-                  {res.description}
-                </p>
-                <PdfViewer fileUrl={res.file} />
+                <h1 className="fw-bold">{res.subject}</h1>
+                <p className="fw-bold">{res.title}</p>
+                <p>{res.id}</p>
                 <Link to= {`${res.subject.toLowerCase()}`} className="btn btn-primary mt-auto w-100">
                   Explore {res.subject}
                </Link>
