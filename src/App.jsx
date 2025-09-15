@@ -2,15 +2,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./components/Footer";
 import NotFound_page from "./Not_Found_page";
-// Ministary Imports
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
-import Courses from "./components/AllCourses/Courses";
+
+// Ministary Imports
+import Courses from "./ministary/CoursesMinistry";
 import EntranceCollage from "./entrance/Pages/selectCollage/EntranceCollage";
 import MinistryResources from "./ministary/Resources";
 import MinistryPDF_Resource from "./ministary/PDF_Resource";
 import MinistryVIDEO_Resource from "./ministary/VIDEO_Resource";
+
 // Matric imports
+import CoursesMatric from "./matric/CoursesMatric";
 import MatricResources from "./matric/Resources";
 import MatricPDF_Resource from "./matric/PDF_Resource";
 import MatricVIDEO_Resource from "./matric/VIDEO_Resource";
@@ -22,6 +25,7 @@ import EntrancePDF_Resource from "./entrance/PDF_Resource";
 import EntranceVIDEO_Resource from "./entrance/VIDEO_Resource";
 import EntranceNaturalSubjects from "./entrance/Naturalsubjects";
 import EntranceSocialSubjects from "./entrance/Socialsubjects";
+import CoursesMinistry from "./ministary/CoursesMinistry";
 
 // import { useEffect, useState } from "react";
 // import { getExamTypesAPI } from "./services/api";
@@ -48,13 +52,13 @@ function App() {
         <Route path="/about" element={<About/>}/>
         
         {/* for Ministary student */}
-        <Route path="/ministry" element={<Courses/>}/>
+        <Route path="/ministry" element={<CoursesMinistry/>}/>
         <Route path="/ministry/natural_science/physics" element={<MinistryResources />}/>
         <Route path="/ministry/natural_science/physics/pdf" element={<MinistryPDF_Resource />}/>
         <Route path="/ministry/natural_science/physics/video" element={<MinistryVIDEO_Resource />}/>
         
         {/* for matric student */}
-        <Route path="/matric" element={<Courses/>}/>
+        <Route path="/matric" element={<CoursesMatric/>}/>
         <Route path="/matric/natural_science/physics" element={<MatricResources />}/>
         <Route path="/matric/natural_science/physics/pdf" element={<MatricPDF_Resource />}/>
         <Route path="/matric/natural_science/physics/video" element={<MatricVIDEO_Resource />}/>
