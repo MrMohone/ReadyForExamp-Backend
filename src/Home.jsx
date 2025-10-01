@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Button from './components/Button'
 
 function Home() {
 
@@ -16,8 +15,9 @@ function Home() {
 
         {/* Buttons */}
         <div className="d-flex gap-3 justify-content-center flex-wrap">
-          <Button btn_start='Start Now'/>
-
+          <Link to='/start' className="btn btn-primary btn-lg px-4">
+             Start Now
+          </Link>
           <Link to='/about'className="btn btn-outline-dark btn-lg px-4">
             About Us
           </Link>

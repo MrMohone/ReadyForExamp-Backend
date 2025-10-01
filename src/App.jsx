@@ -1,95 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Footer from "./components/Footer";
-import NotFound_page from "./Not_Found_page";
-import Dashboard from "./components/Dashboard";
-import About from "./components/About";
-
-// Ministary Imports
-import Courses from "./ministary/CoursesMinistry";
-import EntranceCollage from "./entrance/Pages/selectCollage/EntranceCollage";
-import MinistryResources from "./ministary/Resources";
-import MinistryPDF_Resource from "./ministary/PDF_Resource";
-import MinistryVIDEO_Resource from "./ministary/VIDEO_Resource";
-
-// Matric imports
-import CoursesMatric from "./matric/CoursesMatric";
-import MatricResources from "./matric/Resources";
-import MatricPDF_Resource from "./matric/PDF_Resource";
-import MatricVIDEO_Resource from "./matric/VIDEO_Resource";
-
-
-// Entrance imports
-import EntranceResources from "./entrance/Resources";
-import EntrancePDF_Resource from "./entrance/PDF_Resource";
-import EntranceVIDEO_Resource from "./entrance/VIDEO_Resource";
-import EntranceNaturalSubjects from "./entrance/Naturalsubjects";
-import EntranceSocialSubjects from "./entrance/Socialsubjects";
-import CoursesMinistry from "./ministary/CoursesMinistry";
-
-// import { useEffect, useState } from "react";
-// import { getExamTypesAPI } from "./services/api";
-
-
-function App() {
-  
-  // const [examTypes, setExamTypes] = useState([]);
-
-  // useEffect(() => {
-  //   getExamTypes()
-  //     .then((res) => setExamTypes(res.data))
-  //     .catch((err) => console.error("Error fetching exam types:", err));
-  // }, []);
-
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './Home'
+import NotFound from './Not_Found_page'
+import MainDashboard from './components/MainDashboard'
+import SelectSubject from './components/SelectSubject'
+import Subject from './components/Subject'
+import PdfFile from './components/PdfFile'
+import VideoFile from './components/VideoFile'
+import About from './About'
+const App = () => {
   return (
-    <Router>
-      {/* <Navbar /> */}
+    <>
+    <BrowserRouter>
       <Routes>
-        {/* for all pages */}
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound_page/>}/>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/about" element={<About/>}/>
-        
-        {/* for Ministary student */}
-        <Route path="/ministry" element={<CoursesMinistry/>}/>
-        <Route path="/ministry/natural_science/physics" element={<MinistryResources />}/>
-        <Route path="/ministry/natural_science/physics/pdf" element={<MinistryPDF_Resource />}/>
-        <Route path="/ministry/natural_science/physics/video" element={<MinistryVIDEO_Resource />}/>
-        
-        {/* for matric student */}
-        <Route path="/matric" element={<CoursesMatric/>}/>
-        <Route path="/matric/natural_science/physics" element={<MatricResources />}/>
-        <Route path="/matric/natural_science/physics/pdf" element={<MatricPDF_Resource />}/>
-        <Route path="/matric/natural_science/physics/video" element={<MatricVIDEO_Resource />}/>
-        {/* <Route path="/matric/natural_science" element={<MatricNaturalSubjects/>}/>
-        <Route path="/matric/social_science" element={<MatricSocialSubjects/>} /> */}
-
-
-        {/* for entrance student */}
-        <Route path="/entrance" element={<EntranceCollage/>}/>
-        <Route path="/entrance/natural_science/physics" element={<EntranceResources />}/>
-        <Route path="/entrance/natural_science/physics/pdf" element={<EntrancePDF_Resource />}/>
-        <Route path="/entrance/natural_science/physics/video" element={<EntranceVIDEO_Resource />}/>
-        <Route path="/entrance/natural_science" element={<EntranceNaturalSubjects/>}/>
-        <Route path="/entrance/social_science" element={<EntranceSocialSubjects/>} />
-
-
-        
-
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/start" element={<MainDashboard />} />
+        <Route path='/ministry' element={<SelectSubject />} />
+        <Route path='/subject/:subject' element={<Subject />} />
+        <Route path='/subject/:subject/pdf' element={<PdfFile />} />
+        <Route path='/subject/:subject/video' element={<VideoFile />} />
       </Routes>
-       {/* <div>
-          <h1>Exam Types</h1>
-          <ul>
-            {examTypes.map((exam) => (
-              <li key={exam.id}>{exam.exam_name}</li>
-            ))}
-          </ul>
-        </div> */}
-      <Footer />
-    </Router>
-    
-  );
+    </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
