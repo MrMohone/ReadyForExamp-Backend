@@ -1,55 +1,101 @@
 from django.db import models
 
-
 class ExamType(models.Model):
-    EXAM_CATEGORY_CHOICES = [
-        ('Ministry', 'Ministry'),
-        ('Matric', 'Matric'),
-        ('Entrance', 'Entrance'),
+    EXAM_CHOICES = [
+        ('Ministry', 'Ministry Exam'),
+        ('Matric', 'Matric Exam'),
+        ('Entrance', 'Entrance Exam'),
     ]
-    exam_name =  models.CharField(max_length=20,choices=EXAM_CATEGORY_CHOICES, default='Ministry')
+    exam_type = models.CharField(max_length=50, choices=EXAM_CHOICES, unique=True, default='Ministry')
 
     def __str__(self):
-        return self.exam_name
-
-class MatricResource(models.Model):
-    RESOURCE_TYPE_CHOICES = [
-        ('PDF', 'PDF'),
-        ('Video', 'Video'),
+        return self.exam_type
+    
+class College(models.Model):
+    COLLEGE_CHOICES = [
+        ('Natural Science', 'Natural Science'),
+        ('Social Science', 'Social Science'),
     ]
+    college_type = models.CharField(max_length=50, choices=COLLEGE_CHOICES, unique=True, default='Natural Science')
 
-    subject = models.CharField(max_length=200,null=False, blank=False)
-    title = models.CharField(max_length=200)
-    resource_type = models.CharField(max_length=10, choices=RESOURCE_TYPE_CHOICES, default='PDF')
-    file = models.FileField(upload_to='resources/matric/')
+    def __str__(self):
+        
+        return self.college_type
+
+class ResourceType(models.Model):
+    RESOURCE_CHOICES = [
+        ('PDF', 'PDF Document'),
+        ('Video', 'Video Resource'),
+    ]
+    resource_type = models.CharField(max_length=50, choices=RESOURCE_CHOICES, unique=True, default='PDF')
+
+    def __str__(self):
+        return self.resource_type
+    
+class GradeSixTotalSubjects(models.Model):
+    SUBJECT_CHOICES = [
+        ('Mathematics', 'Mathematics'),
+        ('English', 'English'),
+        ('Physics' , 'Physics'),
+        ('Chemistry', 'Chemistry'),
+        ('Biology', 'Biology'),
+        ('History', 'History'),
+        ('Geography', 'Geography'),
+        ('Civics', 'Civics'),
+    ]
+    
+    allsubject = models.CharField(choices=SUBJECT_CHOICES, default='Mathematics', null=False, blank=False, unique=True)
+    description = models.TextField(max_length=255, blank=False, null=False, default='No description provided.')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.allsubject
+    
+
+class GradeSixResource(models.Model):
+    SUBJECT_CHOICES = [
+        ('Mathematics', 'Mathematics'),
+        ('English', 'English'),
+        ('Physics' , 'Physics'),
+        ('Chemistry', 'Chemistry'),
+        ('Biology', 'Biology'),
+        ('History', 'History'),
+        ('Geography', 'Geography'),
+        ('Civics', 'Civics'),
+    ]
+    
+    subject = models.CharField(choices=SUBJECT_CHOICES, default='Mathematics', null=False, blank=False)
+    title = models.CharField(max_length=255, null=False, blank=False)
+    resource = models.ForeignKey(ResourceType, on_delete=models.CASCADE)
+    file = models.FileField(max_length=255,upload_to='resources/')
     description = models.TextField(blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.subject} ({self.title})"
+        return f"{self.subject} - {self.title}"
 
-
-class MinistryResource(models.Model):
-    RESOURCE_TYPE_CHOICES = [
-        ('PDF', 'PDF'),
-        ('Video', 'Video'),
-    ]
-
-    # subject = models.CharField(max_length=200, null=False, blank=False)
-    # title = models.CharField(max_length=200)
-    resource_type = models.CharField(max_length=10, choices=RESOURCE_TYPE_CHOICES, default='PDF')
-    # file = models.FileField(upload_to='resources/ministry/')
-    # description = models.TextField(blank=True, null=True)
-    # uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.resource_type}"
-
-class MinistryAllResource(models.Model):
-    subject = models.CharField(max_length=200, null=False, blank=False)
-    title = models.CharField(max_length=200)
-    exam_name = models.ForeignKey(ExamType, on_delete=models.CASCADE, related_name="exam", default="Ministry")
-    resource_type = models.ForeignKey(MinistryResource, on_delete=models.CASCADE, related_name="resource", default="PDF")
-    file = models.FileField(upload_to='resources/ministry/')
+class GradeEightResource(models.Model):
+    subject = models.CharField(max_length=100, null=False, blank=False)
+    title = models.CharField(max_length=255, null=False, blank=False)
+    resource = models.ForeignKey(ResourceType, on_delete=models.CASCADE)
+    file = models.FileField(max_length=255, upload_to='resources/')
     description = models.TextField(blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.subject} - {self.title}"
+
+class GradeElevenResource(models.Model):
+    subject = models.CharField(max_length=100, null=False, blank=False)
+    title = models.CharField(max_length=255, null=False, blank=False)
+    resource = models.ForeignKey(ResourceType, on_delete=models.CASCADE)
+    college = models.ForeignKey(College, on_delete=models.CASCADE)
+    file = models.FileField(max_length=255, upload_to='resources/')
+    description = models.TextField(blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.subject} - {self.title}"

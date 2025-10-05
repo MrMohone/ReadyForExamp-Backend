@@ -1,24 +1,47 @@
 from rest_framework import serializers
-from .models import ExamType, MatricResource, MinistryResource, MinistryAllResource
+from .models import ExamType, ResourceType, College, GradeSixResource,GradeSixTotalSubjects, GradeEightResource, GradeElevenResource
+
 
 class ExamTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExamType
-        fields = ['id', 'exam_name']
+        fields = ['exam_type']
 
-class MinistryResourceSerializer(serializers.ModelSerializer):
+class ResourceTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MinistryResource
-        fields = ['id','resource_type',]
+        model = ResourceType
+        fields = ['resource_type']
 
-class MatricResourceSerializer(serializers.ModelSerializer):
+class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MatricResource
-        fields = ['id', 'subject', 'title', 'resource_type', 'file', 'description', 'uploaded_at']
+        model = College
+        fields = ['college_type']
 
-class MinistryAllResourceSerializer(serializers.ModelSerializer):
+
+class GradeSixResourceSerializer(serializers.ModelSerializer):
+    resource = ResourceTypeSerializer(read_only=True)
+
     class Meta:
-        model = MinistryAllResource
-        fields = ['id', 'subject', 'title', 'exam_name', 'resource_type', 'file','description', 'uploaded_at']
- 
+        model = GradeSixResource
+        fields = ['id', 'subject', 'title', 'resource', 'file', 'description', 'uploaded_at', 'modified_at']
 
+
+class GradeSixTotalSubjectsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GradeSixTotalSubjects
+        fields = ['id', 'allsubject', 'description', 'uploaded_at', 'modified_at']
+
+class GradeEightResourceSerializer(serializers.ModelSerializer):
+    resource = ResourceTypeSerializer(read_only=True)
+
+    class Meta:
+        model = GradeEightResource
+        fields = ['id', 'subject', 'title', 'resource', 'file', 'description', 'uploaded_at', 'modified_at']
+
+class GradeElevenResourceSerializer(serializers.ModelSerializer):
+    resource = ResourceTypeSerializer(read_only=True)
+    college = CollegeSerializer(read_only=True)
+
+    class Meta:
+        model = GradeElevenResource
+        fields = ['id', 'subject', 'title', 'resource', 'college', 'file', 'description', 'uploaded_at', 'modified_at']
