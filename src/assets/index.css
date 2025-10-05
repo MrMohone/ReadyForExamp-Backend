@@ -25,6 +25,7 @@ body a{
   perspective: 1000px;
 }
 
+
 .subject-card {
   padding-top: 50px;
   /* border-radius: 10px; */
@@ -128,4 +129,24 @@ body a{
   font-weight: 900;
   color: rgb(4, 193, 250);
 }
- 
+
+/* home page text animations */
+
+.tracking-in-expand {
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

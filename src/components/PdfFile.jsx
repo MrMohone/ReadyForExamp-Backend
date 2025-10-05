@@ -30,10 +30,10 @@ const PdfFile = () => {
 
   return (
     <>
+    
     <div class="container-fluid text-center">
         <div class="row">
-
-          <div class="col-2 " style={{borderRight: "2px solid #b69a9aff",height: "100vh", backgroundColor: "rgba(193, 189, 192, 0.67)"}}>
+          <div class="col-md-2 " style={{borderRight: "2px solid #b69a9aff",height: "100vh", backgroundColor: "rgba(193, 189, 192, 0.67)"}}>
              <div className="d-flex flex-column justify-content-center align-items-center text-center m-2 p-2">
                 <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3">Read PDF</Link>
                 <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3 p-3">Watch Video</Link>
@@ -41,7 +41,19 @@ const PdfFile = () => {
             </div>    
           </div>
 
-         <div class="col-10">
+         <div class="col-md-10">
+          <div class="dropdown">
+
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Select
+              </button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Read PDF</button></li>
+                <li><button class="dropdown-item" type="button">Watch Video</button></li>
+                <li><button class="dropdown-item" type="button">Back</button></li>
+              </ul>
+            </div>
+            
             <h2 className="p-3 text-center text-primary font-weight-bold">
                 These all are pdf files for you , read them properly        
             </h2>

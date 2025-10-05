@@ -1,13 +1,13 @@
 import React, { useEffect, useState} from 'react'
-import Card from './Card'
+import AllSubjectsCard from './AllSubjectsCard.jsx'
 import  Axios from '../Axios.jsx'
 
-const SelectSubject = () => {
+const AllSubjects = () => {
 
   const [subjects, setSubjects] = useState([])
 
   const fetchData = () => {
-    Axios.get('/gradesixresource')
+    Axios.get('/gradesixresource/allsubjects/')
     .then((res) => {
       setSubjects(res.data);
       console.log(res.data);  
@@ -23,14 +23,14 @@ const SelectSubject = () => {
 
   return (
     <>
-        <h1 className='text-center text-primary m-3 p-3 border-bottom font-weight-bold'>
+        <h1 className='text-center text-primary m-3 p-3 border-bottom font-weight-bold' >
             ALL SUBJECT, Select anyone to start learning
             </h1>
         <div className='row  justify-content-center'>
                 {
                   subjects.map((subject) => (
                     <div class="col-md-3 parent mb-2 " key={subject.id}>
-                      <Card subject={subject}  />
+                      <AllSubjectsCard subject={subject}  />
                     </div>
                   ))
                 }
@@ -39,4 +39,4 @@ const SelectSubject = () => {
   )
 }
 
-export default SelectSubject
+export default AllSubjects

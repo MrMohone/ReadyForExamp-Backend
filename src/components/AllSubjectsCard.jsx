@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Card = ({subject}) => {
+const AllSubjectsCard = ({subject}) => {
   return (
           <div class="subject-card w-100 h-100 shadow-sm ">
             <div class="content-box" 
@@ -10,11 +10,11 @@ const Card = ({subject}) => {
               flexDirection: 'column',
               justifyContent: 'space-between' // space between title, description, and button
             }}>
-                <span class="card-title">{subject.subject}</span>
+                <span class="card-title">{subject.allsubject}</span>
                 <p class="card-content  overflow-auto" style={{ maxHeight: '140px' }} >
                  {subject.description}
                 </p>
-                <Link to={`/subject/${subject.subject}`}><span class="start-btn">Start</span></Link>
+                <Link to={`/subject/${subject.allsubject}`}><span class="start-btn">Start</span></Link>
             </div>
 
             <div className="date-box">
@@ -36,4 +36,4 @@ const Card = ({subject}) => {
   )
 }
 
-export default Card
+export default AllSubjectsCard

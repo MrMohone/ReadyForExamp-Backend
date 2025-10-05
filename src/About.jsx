@@ -3,21 +3,21 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="container my-5">
+    <div className="container my-2">
       {/* Page Header */}
       <div className="text-center mb-5">
-        <h1 className="display-4 text-primary">About Us</h1>
-        <p className="lead text-muted">
+        <h1 className="display-4 text-primary fw-bold border-bottom text-uppercase">About Us</h1>
+        <p className="lead fs-5 ">
           Learn more about our mission, vision, and the team behind this platform.
         </p>
       </div>
 
       {/* Our Mission */}
-      <section className="mb-5">
+      <section className="mb-5 ">
         <h2 className="h3 text-secondary mb-3">Our Mission</h2>
-        <p className="text-muted">
+        <p className="text-muted ">
           Our mission is to provide students and educators with high-quality digital resources,
-          helping them excel in learning through easy access to study materials, interactive
+         br helping them excel in learning through easy access to study materials, interactive
           content, and innovative tools. We believe in making education accessible, engaging,
           and effective for everyone.
         </p>
@@ -31,27 +31,6 @@ const About = () => {
           to reach their full potential. Our goal is to create a seamless learning environment
           that adapts to modern educational needs and inspires lifelong learning.
         </p>
-      </section>
-
-      {/* The Team */}
-      <section>
-        <h2 className="h3 text-secondary mb-3">Meet the Team</h2>
-        <div className="row">
-          {/* Example Team Member */}
-          <div className="col-md-4 text-center mb-4">
-            <div className="card shadow-sm p-3 h-100">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="rounded-circle mb-3"
-                style={{ width: '120px', height: '120px', objectFit: 'cover' }}
-              />
-              <h5 className="card-title mb-1">Mohe</h5>
-              <p className="card-text text-muted">Full-Stack Developer & Tech Content Creator</p>
-            </div>
-          </div>
-          {/* Add more members as needed */}
-        </div>
       </section>
 
       {/* Call to Action */}
