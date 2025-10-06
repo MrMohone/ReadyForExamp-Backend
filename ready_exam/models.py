@@ -63,7 +63,7 @@ class GradeSixResource(models.Model):
         ('Geography', 'Geography'),
         ('Civics', 'Civics'),
     ]
-    
+    teacher = models.CharField(max_length=100, blank=False, null=False)
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Mathematics', null=False, blank=False)
     title = models.CharField(max_length=255, null=False, blank=False)
     resource = models.ForeignKey(ResourceType, on_delete=models.CASCADE)

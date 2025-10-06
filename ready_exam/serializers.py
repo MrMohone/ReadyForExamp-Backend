@@ -23,7 +23,7 @@ class GradeSixResourceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GradeSixResource
-        fields = ['id', 'subject', 'title', 'resource', 'file', 'description', 'uploaded_at', 'modified_at']
+        fields = ['id', 'subject','teacher', 'title', 'resource', 'file', 'description', 'uploaded_at', 'modified_at']
 
 
 class GradeSixTotalSubjectsSerializer(serializers.ModelSerializer):
