@@ -30,28 +30,60 @@ const VideoFile = () => {
   return (
     <>
     <div class="container-fluid text-center">
-        <div class="row">
+        <div class="row justify-content-center">
 
-          <div class="col-2 " style={{borderRight: "2px solid #b69a9aff",height: "100vh", backgroundColor: "rgba(193, 189, 192, 0.67)"}}>
+          <div class="col-md-3 d-none d-md-block" 
+          style={{
+              borderRight: "2px solid #b69a9aff",
+              height: "100vh",
+              backgroundColor: "rgba(193, 189, 192, 0.67)",
+              position: "fixed",
+              left: 0,                       
+              top: 0,
+              width: "20%",
+              bottom: 0,
+              height : "100vh",
+              overflow: "hidden",   
+              }}>
              <div className="d-flex flex-column justify-content-center align-items-center text-center m-2 p-2">
-                <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3">Read PDF</Link>
-                <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3 p-3">Watch Video</Link>
-                <Link to={`/subject/${subject}`}><button className='btn btn-primary p-3'>Back</button></Link>
+                <Link to={`/subject/${subject}`} className='btn btn-primary mb-3  p-3 w-100'> All Resources</Link>
+                <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3 mx-3 w-100">Read PDF</Link>
             </div>    
           </div>
 
-         <div class="col-10">
-           <h2 className="p-3 text-center text-primary font-weight-bold">
-                        These all are Video files for you , watch them properly        
+         <div class="col-md-9 offset-md-2">
+           <h2 className="p-3 text-center text-primary font-weight-bold  focus-in-expand-fwd">
+                        These all are <span className='text-info'>{subject}</span> Video files for you!        
            </h2>
 
+          <nav class="navbar  navbar-light bg-light d-md-none  d-sm-block">
+            <div class="container-fluid d-flex justify-content-center ">
+                <Link to={`/subject/${subject}`} className='btn btn-primary mb-3  p-3 '> All Resources</Link>
+                <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3 mx-3">Read PDF</Link>
+            </div>
+          </nav>
+
             {
+              videoFile.filter(file => file.resource.resource_type === 'Video').length === 0 ? (
+                <div className="text-center mt-5">
+                  <h4 className="text-muted focus-in-expand-fwd">🎥 No video files found or still loading...</h4>
+                </div>
+              )
+              : (
               videoFile.filter(file => file.resource.resource_type === 'Video')
                 .map((file) => (
-                  <div className="card shadow-sm mb-4 p-3" key={file.id}>
-                    <h3 className='p-3 text-center text-primary font-weight-bold border-bottom'> Watch - <span className='text-danger'>{file.subject}</span> Tutorial</h3>
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title text-truncate mb-2">{file.title}</h5>
+                  <div className="card shadow-sm mb-4 p-3 border-bottom" key={file.id}>
+                      <div className="card-body d-flex flex-column">
+                      <h3 className="card-title text-truncate mb-2">{file.title}</h3>
+                      <div className='border p-2 rounded mb-3'>
+                        <h4 className="text-muted text-start">Prepred by: {`Mr_${file.teacher}`} </h4>
+                        <h4 className="text-muted text-start">Uploaded on: { new Date(file.uploaded_at).
+                          toLocaleString('en-US',{
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}</h4>
+                      </div>
                       <p className="card-text flex-grow-1 mb-3">{file.description}</p>
 
                       <video
@@ -70,7 +102,7 @@ const VideoFile = () => {
                     </div>
                   </div>
                 ))
-            }
+            )}
 
             </div>
         </div>

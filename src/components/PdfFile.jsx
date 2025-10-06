@@ -33,56 +33,75 @@ const PdfFile = () => {
     
     <div class="container-fluid text-center">
         <div class="row">
-          <div class="col-md-2 " style={{borderRight: "2px solid #b69a9aff",height: "100vh", backgroundColor: "rgba(193, 189, 192, 0.67)"}}>
+          <div class="col-md-3 d-none d-md-block " 
+          style={{
+              borderRight: "2px solid #b69a9aff",
+              height: "100vh",
+              backgroundColor: "rgba(193, 189, 192, 0.67)",
+              position: "fixed",
+              left: 0,                       
+              top: 0,
+              width: "20%",
+              bottom: 0,
+              height : "100vh",
+              overflow: "hidden",   
+              }}>
              <div className="d-flex flex-column justify-content-center align-items-center text-center m-2 p-2">
-                <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3">Read PDF</Link>
-                <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3 p-3">Watch Video</Link>
-                <Link to={`/subject/${subject}`}><button className='btn btn-primary p-3'>Back</button></Link>
+                <Link to={`/subject/${subject}`} className='btn btn-primary mb-3  p-3 w-100'> All Resources</Link>
+                <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3 p-3 w-100">Watch Video</Link>
             </div>    
           </div>
 
-         <div class="col-md-10">
-          <div class="dropdown">
-
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Select
-              </button>
-              <ul class="dropdown-menu">
-                <li><button class="dropdown-item" type="button">Read PDF</button></li>
-                <li><button class="dropdown-item" type="button">Watch Video</button></li>
-                <li><button class="dropdown-item" type="button">Back</button></li>
-              </ul>
-            </div>
-            
-            <h2 className="p-3 text-center text-primary font-weight-bold">
-                These all are pdf files for you , read them properly        
+         <div class="col-md-9 offset-md-3">
+            <h2 className="p-3 text-center text-primary font-weight-bold focus-in-expand-fwd">
+                These all are <span className='text-info'>{subject}</span> pdf files for you !       
             </h2>
 
-           {
-           pdfFile.filter(file => file.resource.resource_type === 'PDF' )
-            .map((file) => (
-              <div className="card shadow-sm mb-4 p-3" key={file.id}>
-                <h3 className='p-3 text-center text-primary font-weight-bold border-bottom'> Read - <span className='text-danger'>{file.subject}</span> Pdf</h3>
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title text-truncate">{file.title}</h5>
-                  <p className="card-text flex-grow-1">{file.description || "No description available."}</p>
-                  
-                  <a
-                    href={file.file}
-                    className="btn btn-primary mt-auto"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Read PDF
-                  </a>
+             <nav class="navbar d-md-none d-sm-block">
+                <div class="container-fluid d-flex justify-content-center wrap-nowrap ">
+                    <Link to={`/subject/${subject}`} className='btn btn-primary mb-3  p-3 me-3'> All Resources</Link>
+                    <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3 p-3">Watch Video</Link>
                 </div>
-              </div>
-            ))
-          }
+              </nav>
+
+           {
+              pdfFile.filter(file => file.resource.resource_type === 'PDF').length === 0 ? (
+                  <div className="text-center mt-5">
+                    <h4 className="text-muted focus-in-expand-fwd">📄 No PDFs found or still loading...</h4>
+                  </div>
+              ) : (
+              pdfFile.filter(file => file.resource.resource_type === 'PDF' )
+                .map((file) => (
+                  <div className="card shadow-sm mb-4  border-bottom mb-5" key={file.id}>
+                      <div className="card-body d-flex flex-column">
+                      <h3 className="card-title text-truncate">{file.title}</h3>
+                      <div className='border p-2 rounded mb-3'>
+                        <h4 className="text-muted text-start">Prepred by: {`Mr_${file.teacher}`} </h4>
+                        <h4 className="text-muted text-start">Uploaded on: { new Date(file.uploaded_at).
+                          toLocaleString('en-US',{
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}</h4>
+                      </div>
+                      <p className="card-text flex-grow-1 text-start" >{file.description || "No description available."}</p>
+                      
+                      <a
+                        href={file.file}
+                        className="btn btn-success mt-auto"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                          Click To Read PDF
+                      </a>
+                    </div>
+                  </div>
+                ))
+              )
+           }
 
          </div>
         </div>
-        <Link to="/subject" className="btn btn-primary p-3">Back</Link>
          
     </div>
     </>

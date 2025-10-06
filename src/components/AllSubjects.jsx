@@ -22,11 +22,11 @@ const AllSubjects = () => {
   }, [])
 
   return (
-    <>
-        <h1 className='text-center text-primary m-3 p-3 border-bottom font-weight-bold' >
+    <div className='container-fluid p-3 '>
+        <h1 className='text-center text-primary m-3 p-3 border-bottom font-weight-bold focus-in-expand-fwd' >
             ALL SUBJECT, Select anyone to start learning
             </h1>
-        <div className='row  justify-content-center'>
+        <div className='row  justify-content-center '>
                 {
                   subjects.map((subject) => (
                     <div class="col-md-3 parent mb-2 " key={subject.id}>
@@ -35,7 +35,7 @@ const AllSubjects = () => {
                   ))
                 }
         </div>
-    </>
+    </div>
   )
 }
 
