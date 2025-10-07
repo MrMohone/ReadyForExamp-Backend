@@ -8,6 +8,7 @@ import PdfFile from './components/PdfFile'
 import VideoFile from './components/VideoFile'
 import About from './About'
 import AllSubjects from './components/AllSubjects'
+import SubjectBYYear from './components/SubjectBYYear'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/subject/:subject' element={<Subject />} />
         <Route path='/subject/:subject/pdf' element={<PdfFile />} />
         <Route path='/subject/:subject/video' element={<VideoFile />} />
+        <Route path='/subject/:subject/:year' element={<SubjectBYYear />} />
       </Routes>
     </BrowserRouter>
     </>

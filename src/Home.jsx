@@ -17,7 +17,7 @@ function Home() {
         style={{color: '#1bd8e2ff'}} >
           Welcome to Free Ready To Pass Exam <br />Digital Learning System
         </h1>
-        <p className="lead fw-bold mb-5 text-focus-in bg-secondary rounded" style={{fontSize: '1.5rem', color: '#000000de'}}>
+        <p className="lead fw-bold mb-5 text-focus-in  rounded" style={{fontSize: '1.5rem', color: '#000000de'}}>
           Your digital companion for Ministry, Matric & Entrance Exam success.
         </p>
 

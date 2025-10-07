@@ -45,21 +45,31 @@ const Subject = () => {
               }}>
              <div className="d-flex flex-column justify-content-center align-items-center text-center m-2 p-2">
                 <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3 w-100">Read PDF</Link>
-                <Link to={`/subject/${subject}/video`} className="btn btn-primary p-3 w-100">Watch Video</Link>
+                <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3  p-3 w-100">Watch Video</Link>
+                <h4 className="text-center text-primary">Select Year</h4>
+                <Link to={`/subject/${subject}/2025`}className="btn btn-primary p-3 mb-3  w-100">2025</Link>
+                <Link to={`/subject/${subject}/2026`}className="btn btn-primary p-3 mb-3  w-100">2026</Link>
+                <Link to={`/subject/${subject}/2027`}className="btn btn-primary p-3 mb-3  w-100">2027</Link>
+                <Link to={`/subject/${subject}/2028`}className="btn btn-primary p-3 w-100">2028</Link>
+
             </div>    
           </div>
 
          <div class="col-md-9 offset-md-2">
          <div className="card shadow-sm mb-4 p-3">
           
-            <h3 className='p-3 text-center text-primary font-weight-bold border-bottom focus-in-expand-fwd'>
+            <div className='border-bottom'>
+              <h3 className='px-3 text-center text-primary font-weight-bold  focus-in-expand-fwd'>
                 This are All  <span className='text-info '>{subject}</span> Resources are here for you! 
             </h3>  
+            <small className='p-2 text-danger focus-in-expand-fwd'>Please read the description before downloading the file</small>
+            </div>
              <nav class="navbar  navbar-light bg-light d-md-none  d-sm-block">
                 <div class="container-fluid d-flex justify-content-center ">
                     <Link to={`/subject/${subject}/pdf`} className="btn btn-primary mb-3 p-3 me-3 ">Read PDF</Link>
                     <Link to={`/subject/${subject}/video`} className="btn btn-primary mb-3 p-3">Watch Video</Link>
                 </div>
+                
               </nav>
 
             {
